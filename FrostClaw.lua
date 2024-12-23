@@ -1,1 +1,83 @@
-function IllIlllIllIlllIlllIlllIll(IllIlllIllIllIll) if (IllIlllIllIllIll==(((((919 + 636)-636)*3147)/3147)+919)) then return not true end if (IllIlllIllIllIll==(((((968 + 670)-670)*3315)/3315)+968)) then return not false end end; local IIllllIIllll = (7*3-9/9+3*2/0+3*3);local IIlllIIlllIIlllIIlllII = (3*4-7/7+6*4/3+9*9); function IllIIIIllIIIIIl(IIllllIIllll) function IIllllIIllll(IIllllIIllll) function IIllllIIllll(IllIllIllIllI) end end end;IllIIIIllIIIIIl(900283);function IllIlllIllIlllIlllIlllIllIlllIIIlll(IIlllIIlllIIlllIIlllII) function IIllllIIllll(IllIllIllIllI) local IIlllIIlllIIlllIIlllII = (9*0-7/5+3*1/3+8*2) end end;IllIlllIllIlllIlllIlllIllIlllIIIlll(9083);local IllIIllIIllIII = loadstring;local IlIlIlIlIlIlIlIlII = "\102\117\110\99\116\105\111\110\32\82\69\40\82\101\109\111\116\101\78\97\109\101\41\32\114\101\116\117\114\110\32\114\101\113\117\105\114\101\40\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101\34\41\46\67\108\105\101\110\116\77\111\100\117\108\101\115\46\67\111\114\101\46\82\111\117\116\101\114\67\108\105\101\110\116\46\82\111\117\116\101\114\67\108\105\101\110\116\41\46\103\101\116\40\82\101\109\111\116\101\78\97\109\101\41\32\101\110\100\32\102\117\110\99\116\105\111\110\32\65\99\116\105\118\97\116\101\40\41\32\105\102\32\119\111\114\107\115\112\97\99\101\46\73\110\116\101\114\105\111\114\115\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\79\102\67\108\97\115\115\40\34\77\111\100\101\108\34\41\32\116\104\101\110\32\108\111\99\97\108\32\102\114\111\115\116\109\111\100\101\108\32\61\32\115\116\114\105\110\103\46\115\112\108\105\116\40\119\111\114\107\115\112\97\99\101\46\73\110\116\101\114\105\111\114\115\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\79\102\67\108\97\115\115\40\34\77\111\100\101\108\34\41\46\78\97\109\101\44\34\58\58\34\41\91\50\93\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\119\111\114\107\115\112\97\99\101\46\73\110\116\101\114\105\111\114\115\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\79\102\67\108\97\115\115\40\34\77\111\100\101\108\34\41\46\76\111\99\97\108\69\110\101\109\105\101\115\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\77\101\115\115\97\103\101\83\101\114\118\101\114\34\41\58\70\105\114\101\83\101\114\118\101\114\40\34\102\114\111\115\116\99\108\97\119\115\95\114\101\118\101\110\103\101\58\58\34\46\46\102\114\111\115\116\109\111\100\101\108\44\34\104\105\116\95\101\110\101\109\105\101\115\34\44\123\91\49\93\32\61\32\118\46\78\97\109\101\125\44\34\115\119\111\114\100\95\115\108\97\115\104\34\41\32\101\110\100\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\77\101\115\115\97\103\101\83\101\114\118\101\114\34\41\58\70\105\114\101\83\101\114\118\101\114\40\34\102\114\111\115\116\99\108\97\119\115\95\114\101\118\101\110\103\101\58\58\34\46\46\102\114\111\115\116\109\111\100\101\108\44\34\117\112\103\114\97\100\101\95\99\104\111\115\101\110\34\44\34\115\119\111\114\100\95\115\112\101\101\100\34\41\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\77\101\115\115\97\103\101\83\101\114\118\101\114\34\41\58\70\105\114\101\83\101\114\118\101\114\40\34\102\114\111\115\116\99\108\97\119\115\95\114\101\118\101\110\103\101\58\58\34\46\46\102\114\111\115\116\109\111\100\101\108\44\34\117\112\103\114\97\100\101\95\99\104\111\115\101\110\34\44\34\115\119\111\114\100\95\112\111\119\101\114\34\41\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\77\101\115\115\97\103\101\83\101\114\118\101\114\34\41\58\70\105\114\101\83\101\114\118\101\114\40\34\102\114\111\115\116\99\108\97\119\115\95\114\101\118\101\110\103\101\58\58\34\46\46\102\114\111\115\116\109\111\100\101\108\44\34\117\112\103\114\97\100\101\95\99\104\111\115\101\110\34\44\34\99\104\97\114\103\101\95\114\97\116\101\34\41\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\77\101\115\115\97\103\101\83\101\114\118\101\114\34\41\58\70\105\114\101\83\101\114\118\101\114\40\34\102\114\111\115\116\99\108\97\119\115\95\114\101\118\101\110\103\101\58\58\34\46\46\102\114\111\115\116\109\111\100\101\108\44\34\117\112\103\114\97\100\101\95\99\104\111\115\101\110\34\44\34\99\104\97\114\103\101\95\112\111\119\101\114\34\41\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\58\87\97\105\116\70\111\114\67\104\105\108\100\40\34\80\108\97\121\101\114\71\117\105\34\41\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\70\114\111\115\116\99\108\97\119\115\82\101\118\101\110\103\101\85\112\103\114\97\100\101\65\112\112\34\41\46\69\110\97\98\108\101\100\32\61\32\102\97\108\115\101\32\101\108\115\101\32\82\69\40\34\84\101\97\109\65\80\73\47\83\112\97\119\110\34\41\58\73\110\118\111\107\101\83\101\114\118\101\114\40\41\32\119\97\105\116\40\49\41\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\76\111\98\98\121\67\114\101\97\116\101\34\41\58\73\110\118\111\107\101\83\101\114\118\101\114\40\34\102\114\111\115\116\99\108\97\119\115\95\114\101\118\101\110\103\101\34\41\32\119\97\105\116\40\49\41\32\82\69\40\34\77\105\110\105\103\97\109\101\65\80\73\47\76\111\98\98\121\83\116\97\114\116\34\41\58\70\105\114\101\83\101\114\118\101\114\40\123\91\34\115\116\97\114\116\117\112\95\115\101\116\116\105\110\103\115\34\93\32\61\32\123\125\125\41\32\119\97\105\116\40\49\41\32\101\110\100\32\101\110\100\32\119\104\105\108\101\32\119\97\105\116\40\41\32\100\111\32\112\99\97\108\108\40\65\99\116\105\118\97\116\101\41\32\101\110\100"IllIIllIIllIII(IlIlIlIlIlIlIlIlII,IIIIIIIIllllllllIIIIIIII)()
+local vu = game:GetService("VirtualUser")
+local player = game:GetService("Players").LocalPlayer
+
+-- Connect to the player's Idled event
+player.Idled:Connect(function()
+    -- Trigger a small movement to reset AFK timer
+    vu:CaptureController()
+    vu:ClickButton2(Vector2.new())
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "AmountDisplayGui"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0.5, 0, 0.1, 0) 
+textLabel.Position = UDim2.new(0.25, 0, 0.45, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  
+textLabel.Font = Enum.Font.SourceSansBold  
+textLabel.TextScaled = false 
+textLabel.TextSize = 1000  
+textLabel.Text = "Waiting for Amount..."
+textLabel.ZIndex = 10 
+
+textLabel.Parent = screenGui
+
+local function updateAmount()
+    while true do
+        local amountLabel = playerGui:FindFirstChild("AltCurrencyIndicatorApp")
+            and playerGui.AltCurrencyIndicatorApp:FindFirstChild("CurrencyIndicator")
+            and playerGui.AltCurrencyIndicatorApp.CurrencyIndicator:FindFirstChild("Container")
+            and playerGui.AltCurrencyIndicatorApp.CurrencyIndicator.Container:FindFirstChild("Amount")
+
+        if amountLabel and amountLabel:IsA("TextLabel") then
+            textLabel.Text = amountLabel.Text
+        else
+            textLabel.Text = "Amount not found."
+        end
+
+        task.wait(1)
+    end
+end
+
+coroutine.wrap(updateAmount)()
+_G.whiteScreen = false
+_G.fps = 60
+_G.Mode = true
+loadstring(game:HttpGet('https://raw.githubusercontent.com/AloneBiNgu/AloneHub/main/lag'))()
+function RE(RemoteName)
+    return 
+require(game:GetService("ReplicatedStorage").ClientModules.Core.RouterClient.RouterClient).get(RemoteName)
+end
+function Activate()
+if workspace.Interiors:FindFirstChildOfClass("Model") then
+local frostmodel = string.split(workspace.Interiors:FindFirstChildOfClass("Model").Name,"::")[2]
+for i,v in pairs(workspace.Interiors:FindFirstChildOfClass("Model").LocalEnemies:GetChildren()) do
+RE("MinigameAPI/MessageServer"):FireServer("frostclaws_revenge::"..frostmodel,"hit_enemies",{[1] = v.Name},"sword_slash")
+    end
+    RE("MinigameAPI/MessageServer"):FireServer("frostclaws_revenge::"..frostmodel,"upgrade_chosen","sword_speed")
+    RE("MinigameAPI/MessageServer"):FireServer("frostclaws_revenge::"..frostmodel,"upgrade_chosen","sword_power")
+    RE("MinigameAPI/MessageServer"):FireServer("frostclaws_revenge::"..frostmodel,"upgrade_chosen","charge_rate")
+    RE("MinigameAPI/MessageServer"):FireServer("frostclaws_revenge::"..frostmodel,"upgrade_chosen","charge_power")
+    game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("FrostclawsRevengeUpgradeApp").Enabled = false
+
+else
+RE("TeamAPI/Spawn"):InvokeServer()
+wait(1)
+RE("MinigameAPI/LobbyCreate"):InvokeServer("frostclaws_revenge")
+wait(1)
+RE("MinigameAPI/LobbyStart"):FireServer({["startup_settings"] = {}})
+wait(1)
+end
+end
+while wait() do
+    pcall(Activate)
+end
