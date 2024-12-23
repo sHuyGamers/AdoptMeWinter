@@ -8,6 +8,48 @@ player.Idled:Connect(function()
     vu:ClickButton2(Vector2.new())
 end)
 
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "AmountDisplayGui"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0.5, 0, 0.1, 0) 
+textLabel.Position = UDim2.new(0.25, 0, 0.45, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  
+textLabel.Font = Enum.Font.SourceSansBold  
+textLabel.TextScaled = false 
+textLabel.TextSize = 1000  
+textLabel.Text = "Waiting for Amount..."
+textLabel.ZIndex = 10 
+
+textLabel.Parent = screenGui
+
+local function updateAmount()
+    while true do
+        local amountLabel = playerGui:FindFirstChild("AltCurrencyIndicatorApp")
+            and playerGui.AltCurrencyIndicatorApp:FindFirstChild("CurrencyIndicator")
+            and playerGui.AltCurrencyIndicatorApp.CurrencyIndicator:FindFirstChild("Container")
+            and playerGui.AltCurrencyIndicatorApp.CurrencyIndicator.Container:FindFirstChild("Amount")
+
+        if amountLabel and amountLabel:IsA("TextLabel") then
+            textLabel.Text = amountLabel.Text
+        else
+            textLabel.Text = "Amount not found."
+        end
+
+        task.wait(1)
+    end
+end
+
+coroutine.wrap(updateAmount)()
+
 _G.whiteScreen = false
 _G.fps = 60
 _G.Mode = true
