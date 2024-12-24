@@ -76,7 +76,7 @@ wait(1)
 RE("MinigameAPI/LobbyCreate"):InvokeServer("frostclaws_revenge")
 wait(1)
 RE("MinigameAPI/LobbyStart"):FireServer({["startup_settings"] = {}})
-wait(1)
+wait(7)
 end
 end
 while wait() do
