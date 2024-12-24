@@ -44,7 +44,7 @@ local function updateAmount()
             textLabel.Text = "Amount not found."
         end
 
-        task.wait(1)
+        task.wait(120)
     end
 end
 
