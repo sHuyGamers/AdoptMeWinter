@@ -1,68 +1,93 @@
-local messages = {
-    "Anyone trading a legendary pet? 🐾",
-    "Looking for a buddy to take care of pets together! 🐕‍🦺",
-    "How does everyone's house look? 🏡",
-    "Does anyone have an extra fly potion? 🧪",
-    "What's your favorite pet? 🦄",
-    "Anyone want to trade? I’ve got some rare pets! 🤑",
-    "Looking for friends to help train pets faster! 🚴‍♂️",
-    "Who wants to play hide and seek in the house? 🙈",
-    "Any tips on earning bucks quickly? 💸",
-    "Anyone up for trading house decorations? 🛋️",
-    "Did anyone just hatch a legendary from their egg? 🤩",
-    "Which neon pet looks the coolest? 🌟",
-    "I’m working on a mega neon pet, who can help? 🌈",
-    "Who wants to join my party at my house? 🎉",
-    "Anyone want to explore the town together? 🌆",
-    "What’s your favorite egg to hatch? 🥚",
-    "I just got a unicorn! Want to see it? 🦄",
-    "Looking for more players to complete family tasks! 👨‍👩‍👧",
-    "Who wants to visit the pet shop with me? 🛍️",
-    "This is my dream pet, does anyone have it? 💭",
-    "Let’s trade gifts and see what we get! 🎁",
-    "What’s the best way to decorate my house? 🖌️",
-    "I love how colorful neon pets are! 🌈",
-    "Anyone know when the next update is coming? 🗓️",
-    "Does anyone need help with tasks? I’m free! 🤗",
-    "Who’s hosting a party? Let’s go! 🎶",
-    "I’m looking for a ride potion, who’s got one? 🚗",
-    "Can we trade pets for tasks? Let’s team up! 🤝",
-    "Anyone else excited for the next event? 🎉",
-    "Which house style is your favorite? 🏠",
-    "Anyone want to trade their eggs? 🥚",
-    "What’s the rarest pet you’ve got? 🔥",
-    "Let’s go camping together! 🏕️",
-    "I just built a new room in my house, want to see? 🏡",
-    "I need a new stroller; anyone trading one? 🚼",
-    "Anyone got cool outfits for their pets? 👗",
-    "Who wants to help me collect some bucks? 💵",
-    "I found a cool trick for my pet, want to see? 🤹‍♂️",
-    "What’s the best pet combination for neon? ✨",
-    "Let’s have a pet fashion show! Who’s in? 🐾",
-    "I just got a legendary item from the gift! 🎁",
-    "Who wants to play mini-games together? 🎮",
-    "Does anyone know how to build faster? 🛠️",
-    "Let’s hatch eggs together and see who gets lucky! 🍀",
-    "Looking for ideas for my next house design! 💡",
-    "Who’s got a cool mega neon? Let’s trade! 🌈",
-    "What’s the best way to make friends in Adopt Me? 🤗",
-    "Anyone want to visit my house and hang out? 🎊",
-    "I love how creative everyone’s houses are! 🏡",
-    "Can someone help me finish my family tasks? 👨‍👩‍👧",
-    "Who’s got pets they don’t need? Let’s trade! 🐾",
-    "What’s your dream house theme? 🏠",
-    "Does anyone know how to get a unicorn faster? 🦄",
-    "I’m hosting a pet talent show, want to join? 🎭"
-}
+-- Get the player's character
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
 
--- Function to send a random chat message
-local function sendRandomMessage()
-    local message = messages[math.random(#messages)]
-    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+-- Define the RE function
+local function RE(RemoteName)
+    return require(game:GetService("ReplicatedStorage").ClientModules.Core.RouterClient.RouterClient).get(RemoteName)
 end
 
--- Send a random message with a random delay between 1 and 10 minutes
-while true do
-    sendRandomMessage()
-    wait(math.random(180, 600)) -- Delay between 3 to 10 minutes (180 to 600 seconds)
+-- Function to teleport to a position
+local function teleportTo(position)
+    local targetCFrame = CFrame.new(position)
+    humanoidRootPart.CFrame = targetCFrame
+    -- Thêm kiểm tra vị trí thực tế
+    wait(0.1) -- Đợi một chút để physics cập nhật
+    print("Actual position after teleport: " .. tostring(humanoidRootPart.Position))
+end
+
+-- Function to move naturally to a target position
+local function moveNaturally(startPos, endPos)
+    local distance = (endPos - startPos).Magnitude
+    local steps = math.floor(distance / 2)
+    local direction = (endPos - startPos).Unit
+    
+    for i = 1, steps do
+        local newPosition = startPos + (direction * (i * 2))
+        teleportTo(newPosition)
+        humanoid:MoveTo(newPosition)
+        wait(0.2)
+    end
+    teleportTo(endPos)
+    humanoid:MoveTo(endPos)
+end
+
+-- Function to check if teleport was successful
+local function checkTeleportSuccess(targetPosition)
+    local maxAttempts = 5
+    local attempt = 1
+    local tolerance = 1
+    
+    while attempt <= maxAttempts do
+        local currentPosition = humanoidRootPart.Position
+        local distance = (currentPosition - targetPosition).Magnitude
+        
+        if distance <= tolerance then
+            return true
+        end
+        
+        print("Teleport check attempt " .. attempt .. " failed. Distance: " .. distance .. " Current: " .. tostring(currentPosition))
+        teleportTo(targetPosition)
+        wait(0.5)
+        attempt = attempt + 1
+    end
+    return false
+end
+
+-- Step 1: Fire the UnsubscribeFromHouse remote
+local args = {
+    [1] = game:GetService("Players").LocalPlayer,
+    [2] = true
+}
+RE("HousingAPI/UnsubscribeFromHouse"):InvokeServer(unpack(args))
+print("Unsubscribed from house")
+wait(10)
+
+-- Step 2: Teleport to first position and move naturally to second position
+local firstPosition = Vector3.new(5991, 6530, 12070)
+local secondPosition = Vector3.new(5984.46875, 6526.1015625, 12083.5029296875)
+
+teleportTo(firstPosition)
+print("Teleported to first position: " .. tostring(firstPosition))
+
+print("Moving naturally to: " .. tostring(secondPosition))
+moveNaturally(firstPosition, secondPosition)
+print("Reached second position: " .. tostring(secondPosition))
+
+wait(10)
+
+-- Step 3: Teleport to final position with check
+local finalPosition = Vector3.new(74.45714569091797, 39.694610595703125, -1571.4041748046875)
+teleportTo(finalPosition)
+
+if checkTeleportSuccess(finalPosition) then
+    print("Successfully teleported to final position: " .. tostring(finalPosition))
+    -- Tạm thời comment phần cố định để kiểm tra
+    -- humanoid.WalkSpeed = 0
+    -- humanoid.JumpPower = 0
+    -- humanoidRootPart.Anchored = true
+else
+    print("Failed to teleport to final position after multiple attempts")
 end
