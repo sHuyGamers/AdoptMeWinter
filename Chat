@@ -19,23 +19,32 @@ local function teleportTo(position)
     print("Actual position after teleport: " .. tostring(humanoidRootPart.Position))
 end
 
--- Function to lock character movement completely
-local function lockMovement()
-    humanoid.WalkSpeed = 0
-    humanoid.JumpPower = 0
-    humanoidRootPart.Anchored = true
-    humanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-    humanoidRootPart.RotVelocity = Vector3.new(0, 0, 0)
-    humanoid:ChangeState(Enum.HumanoidStateType.Seated) -- Chuyển sang trạng thái ngồi để khóa di chuyển
-    print("Locked movement - Anchored: " .. tostring(humanoidRootPart.Anchored) .. ", WalkSpeed: " .. humanoid.WalkSpeed)
-end
+-- Function to create a hollow cylindrical barrier (like a wall) around a position
+local function createBarrier(position)
+    print("Attempting to create hollow barrier at: " .. tostring(position))
+    local radius = 10 -- Bán kính của tường thành
+    local height = 20 -- Chiều cao của tường
+    local thickness = 1 -- Độ dày của tường
+    local segments = 16 -- Số lượng đoạn để tạo vòng tròn
 
--- Function to enforce lock over multiple frames
-local function enforceLock()
-    for i = 1, 10 do
-        lockMovement()
-        wait(0.05) -- Áp dụng liên tục trong 0.5 giây để đảm bảo
+    for i = 0, segments - 1 do
+        local angle = (2 * math.pi / segments) * i
+        local x = position.X + radius * math.cos(angle)
+        local z = position.Z + radius * math.sin(angle)
+        local segment = Instance.new("Part")
+        segment.Shape = Enum.PartType.Block
+        segment.Size = Vector3.new(thickness, height, 2 * radius * math.tan(math.pi / segments)) -- Độ rộng mỗi đoạn
+        segment.Position = Vector3.new(x, position.Y + height / 2, z) -- Đặt ở giữa chiều cao
+        segment.Anchored = true
+        segment.CanCollide = true
+        segment.Transparency = 0
+        segment.BrickColor = BrickColor.new("Bright red")
+        segment.Material = Enum.Material.Neon
+        segment.Orientation = Vector3.new(0, -math.deg(angle), 0) -- Xoay để hướng vào tâm
+        segment.Parent = game.Workspace
+        print("Segment " .. i .. " created at: " .. tostring(segment.Position))
     end
+    print("Hollow barrier created successfully around: " .. tostring(position))
 end
 
 -- Function to move naturally to a target position
@@ -65,6 +74,7 @@ local function checkTeleportSuccess(targetPosition)
         local distance = (currentPosition - targetPosition).Magnitude
         
         if distance <= tolerance then
+            print("Teleport success at attempt " .. attempt)
             return true
         end
         
@@ -98,13 +108,16 @@ print("Reached second position: " .. tostring(secondPosition))
 
 wait(10)
 
--- Step 3: Teleport to final position with check and lock movement immediately
+-- Step 3: Create barrier first, then teleport to final position
 local finalPosition = Vector3.new(74.45714569091797, 39.694610595703125, -1571.4041748046875)
+
+createBarrier(finalPosition) -- Tạo tường thành rỗng trước
+print("Barrier created, now teleporting to final position: " .. tostring(finalPosition))
 teleportTo(finalPosition)
 
+-- Check teleport success for debug
 if checkTeleportSuccess(finalPosition) then
     print("Successfully teleported to final position: " .. tostring(finalPosition))
-    enforceLock() -- Khóa di chuyển và áp dụng liên tục
 else
-    print("Failed to teleport to final position after multiple attempts")
+    print("Teleport failed after creating barrier")
 end
