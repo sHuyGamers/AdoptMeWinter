@@ -13,9 +13,29 @@ end
 local function teleportTo(position)
     local targetCFrame = CFrame.new(position)
     humanoidRootPart.CFrame = targetCFrame
-    -- Thêm kiểm tra vị trí thực tế
-    wait(0.1) -- Đợi một chút để physics cập nhật
+    humanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+    humanoidRootPart.RotVelocity = Vector3.new(0, 0, 0)
+    wait(0.1)
     print("Actual position after teleport: " .. tostring(humanoidRootPart.Position))
+end
+
+-- Function to lock character movement completely
+local function lockMovement()
+    humanoid.WalkSpeed = 0
+    humanoid.JumpPower = 0
+    humanoidRootPart.Anchored = true
+    humanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+    humanoidRootPart.RotVelocity = Vector3.new(0, 0, 0)
+    humanoid:ChangeState(Enum.HumanoidStateType.Seated) -- Chuyển sang trạng thái ngồi để khóa di chuyển
+    print("Locked movement - Anchored: " .. tostring(humanoidRootPart.Anchored) .. ", WalkSpeed: " .. humanoid.WalkSpeed)
+end
+
+-- Function to enforce lock over multiple frames
+local function enforceLock()
+    for i = 1, 10 do
+        lockMovement()
+        wait(0.05) -- Áp dụng liên tục trong 0.5 giây để đảm bảo
+    end
 end
 
 -- Function to move naturally to a target position
@@ -78,16 +98,13 @@ print("Reached second position: " .. tostring(secondPosition))
 
 wait(10)
 
--- Step 3: Teleport to final position with check
+-- Step 3: Teleport to final position with check and lock movement immediately
 local finalPosition = Vector3.new(74.45714569091797, 39.694610595703125, -1571.4041748046875)
 teleportTo(finalPosition)
 
 if checkTeleportSuccess(finalPosition) then
     print("Successfully teleported to final position: " .. tostring(finalPosition))
-    -- Tạm thời comment phần cố định để kiểm tra
-    -- humanoid.WalkSpeed = 0
-    -- humanoid.JumpPower = 0
-    -- humanoidRootPart.Anchored = true
+    enforceLock() -- Khóa di chuyển và áp dụng liên tục
 else
     print("Failed to teleport to final position after multiple attempts")
 end
