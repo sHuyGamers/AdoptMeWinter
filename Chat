@@ -16,12 +16,10 @@ local function teleportTo(position)
     humanoidRootPart.Velocity = Vector3.new(0, 0, 0)
     humanoidRootPart.RotVelocity = Vector3.new(0, 0, 0)
     wait(0.1)
-    print("Actual position after teleport: " .. tostring(humanoidRootPart.Position))
 end
 
 -- Function to create a hollow cylindrical barrier (like a wall) around a position
 local function createBarrier(position)
-    print("Attempting to create hollow barrier at: " .. tostring(position))
     local radius = 10 -- Bán kính của tường thành
     local height = 20 -- Chiều cao của tường
     local thickness = 1 -- Độ dày của tường
@@ -33,18 +31,16 @@ local function createBarrier(position)
         local z = position.Z + radius * math.sin(angle)
         local segment = Instance.new("Part")
         segment.Shape = Enum.PartType.Block
-        segment.Size = Vector3.new(thickness, height, 2 * radius * math.tan(math.pi / segments)) -- Độ rộng mỗi đoạn
-        segment.Position = Vector3.new(x, position.Y + height / 2, z) -- Đặt ở giữa chiều cao
+        segment.Size = Vector3.new(thickness, height, 2 * radius * math.tan(math.pi / segments))
+        segment.Position = Vector3.new(x, position.Y + height / 2, z)
         segment.Anchored = true
         segment.CanCollide = true
         segment.Transparency = 0
         segment.BrickColor = BrickColor.new("Bright red")
         segment.Material = Enum.Material.Neon
-        segment.Orientation = Vector3.new(0, -math.deg(angle), 0) -- Xoay để hướng vào tâm
+        segment.Orientation = Vector3.new(0, -math.deg(angle), 0)
         segment.Parent = game.Workspace
-        print("Segment " .. i .. " created at: " .. tostring(segment.Position))
     end
-    print("Hollow barrier created successfully around: " .. tostring(position))
 end
 
 -- Function to move naturally to a target position
@@ -74,11 +70,9 @@ local function checkTeleportSuccess(targetPosition)
         local distance = (currentPosition - targetPosition).Magnitude
         
         if distance <= tolerance then
-            print("Teleport success at attempt " .. attempt)
             return true
         end
         
-        print("Teleport check attempt " .. attempt .. " failed. Distance: " .. distance .. " Current: " .. tostring(currentPosition))
         teleportTo(targetPosition)
         wait(0.5)
         attempt = attempt + 1
@@ -87,48 +81,41 @@ local function checkTeleportSuccess(targetPosition)
 end
 
 -- Step 1: Fire the UnsubscribeFromHouse remote
-local args = {
+local unsubscribeArgs = {
     [1] = game:GetService("Players").LocalPlayer,
     [2] = true
 }
-RE("HousingAPI/UnsubscribeFromHouse"):InvokeServer(unpack(args))
-print("Unsubscribed from house")
+RE("HousingAPI/UnsubscribeFromHouse"):InvokeServer(unpack(unsubscribeArgs))
 
-
-local args = {
-    [1] = "pets",
-    [2] = "spring_2025_super_saru",
-    [3] = {
-        ["buy_count"] = 30
+-- Step 2: Buy the item multiple times using a for loop
+local totalPurchases = 30 -- Số lần mua (mỗi lần mua 1 vật phẩm)
+for i = 1, totalPurchases do
+    local buyArgs = {
+        [1] = "pets",
+        [2] = "spring_2025_super_saru",
+        [3] = {
+            ["buy_count"] = 1 -- Mua 1 vật phẩm mỗi lần
+        }
     }
-}
+    RE("ShopAPI/BuyItem"):InvokeServer(unpack(buyArgs))
+    wait(0) -- Đợi 0 giây giữa các lần mua để tránh spam server
+end
+wait(5)
 
-RE("ShopAPI/BuyItem"):InvokeServer(unpack(args))
-wait(10)
-
--- Step 2: Teleport to first position and move naturally to second position
+-- Step 3: Teleport to first position and move naturally to second position
 local firstPosition = Vector3.new(8989, 6530, 12070)
 local secondPosition = Vector3.new(8982.46875, 6526.1015625, 12083.5029296875)
 
 teleportTo(firstPosition)
-print("Teleported to first position: " .. tostring(firstPosition))
-
-print("Moving naturally to: " .. tostring(secondPosition))
 moveNaturally(firstPosition, secondPosition)
-print("Reached second position: " .. tostring(secondPosition))
 
 wait(10)
 
--- Step 3: Create barrier first, then teleport to final position
+-- Step 4: Create barrier first, then teleport to final position
 local finalPosition = Vector3.new(74.45714569091797, 39.694610595703125, -1571.4041748046875)
 
-createBarrier(finalPosition) -- Tạo tường thành rỗng trước
-print("Barrier created, now teleporting to final position: " .. tostring(finalPosition))
+createBarrier(finalPosition) -- Tạo rào chắn rỗng trước
 teleportTo(finalPosition)
 
--- Check teleport success for debug
-if checkTeleportSuccess(finalPosition) then
-    print("Successfully teleported to final position: " .. tostring(finalPosition))
-else
-    print("Teleport failed after creating barrier")
-end
+-- Check teleport success
+checkTeleportSuccess(finalPosition)
