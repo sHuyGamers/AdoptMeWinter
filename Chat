@@ -93,11 +93,22 @@ local args = {
 }
 RE("HousingAPI/UnsubscribeFromHouse"):InvokeServer(unpack(args))
 print("Unsubscribed from house")
+
+
+local args = {
+    [1] = "pets",
+    [2] = "spring_2025_super_saru",
+    [3] = {
+        ["buy_count"] = 30
+    }
+}
+
+RE("ShopAPI/BuyItem"):InvokeServer(unpack(args))
 wait(10)
 
 -- Step 2: Teleport to first position and move naturally to second position
-local firstPosition = Vector3.new(5991, 6530, 12070)
-local secondPosition = Vector3.new(5984.46875, 6526.1015625, 12083.5029296875)
+local firstPosition = Vector3.new(8989, 6530, 12070)
+local secondPosition = Vector3.new(8982.46875, 6526.1015625, 12083.5029296875)
 
 teleportTo(firstPosition)
 print("Teleported to first position: " .. tostring(firstPosition))
