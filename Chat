@@ -88,7 +88,7 @@ local unsubscribeArgs = {
 RE("HousingAPI/UnsubscribeFromHouse"):InvokeServer(unpack(unsubscribeArgs))
 
 -- Step 2: Buy the item multiple times using a for loop
-local totalPurchases = 30 -- Số lần mua (mỗi lần mua 1 vật phẩm)
+local totalPurchases = 15 -- Số lần mua (mỗi lần mua 1 vật phẩm)
 for i = 1, totalPurchases do
     local buyArgs = {
         [1] = "pets",
